@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Week 2 · Teacher Dani ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600;700;800&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sky: #d4e9f7;
+  --sky-mid: #a8d4ee;
+  --sky-dark: #4a8fb5;
+  --sage: #c8ddc9;
+  --sage-dark: #6a9e70;
+  --sage-deep: #3d6b43;
+  --bege: #f7f2eb;
+  --bege-mid: #ede4d6;
+  --bege-dark: #bfa882;
+  --lav: #e4ddf5;
+  --lav-mid: #c2b6e8;
+  --lav-dark: #7b6ab5;
+  --rose: #fce8e8;
+  --rose-dark: #c47a7a;
+  --peach: #fde8d8;
+  --peach-dark: #c47a40;
+  --ink: #2a2a38;
+  --ink-light: #666680;
+  --white: #fdfcfa;
+  --ok: #3d6b43;
+  --no: #c47a7a;
+  --radius: 18px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Nunito', sans-serif; background: var(--bege); color: var(--ink); overflow-x: hidden; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(150deg, #e8f4fb 0%, var(--lav) 50%, #d4edd6 100%);
+  padding: 44px 22px 52px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content:'';
+  position:absolute;
+  bottom:-1px;left:0;right:0;
+  height:32px;
+  background: var(--bege);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+.week-chip {
+  display:inline-block;
+  background:rgba(255,255,255,0.65);
+  backdrop-filter:blur(8px);
+  border:1.5px solid rgba(255,255,255,0.9);
+  border-radius:50px;
+  padding:5px 16px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  color:var(--lav-dark);
+  margin-bottom:18px;
+}
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(26px,6vw,44px);
+  font-weight:600;
+  line-height:1.2;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.hero h1 em { font-style:italic; color:var(--lav-dark); }
+.hero-sub {
+  font-size:14px;
+  color:var(--ink-light);
+  max-width:380px;
+  margin:0 auto 22px;
+  line-height:1.65;
+}
+.hero-pills { display:flex;flex-wrap:wrap;gap:7px;justify-content:center; }
+.hero-pill {
+  background:rgba(255,255,255,0.6);
+  border-radius:50px;
+  padding:5px 13px;
+  font-size:12px;
+  font-weight:600;
+  color:var(--ink);
+}
+
+/* ── STICKY NAV ── */
+.day-nav {
+  position:sticky;top:0;z-index:100;
+  background:rgba(247,242,235,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--bege-mid);
+  padding:10px 14px;
+  display:flex;gap:7px;
+  overflow-x:auto;scrollbar-width:none;
+  justify-content:center;
+}
+.day-nav::-webkit-scrollbar{display:none}
+.day-btn {
+  flex-shrink:0;
+  background:var(--bege-mid);
+  border:none;border-radius:50px;
+  padding:8px 18px;
+  font-family:'Nunito',sans-serif;
+  font-size:13px;font-weight:700;
+  color:var(--ink-light);
+  cursor:pointer;transition:all .2s;white-space:nowrap;
+}
+.day-btn:hover{background:var(--sky-mid);color:var(--ink);}
+.day-btn.active{background:var(--lav-dark);color:#fff;}
+.rev-btn{background:var(--sage);}
+.rev-btn.active{background:var(--sage-deep);color:#fff;}
+
+/* ── LAYOUT ── */
+.container{max-width:660px;margin:0 auto;padding:28px 15px 90px;}
+.day-panel{display:none;animation:fadeUp .35s ease;}
+.day-panel.visible{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── PROGRESS ── */
+.prog-row{display:flex;gap:6px;margin-bottom:26px;}
+.prog-dot{width:8px;height:8px;border-radius:50%;background:var(--bege-mid);transition:all .3s;}
+.prog-dot.done{background:var(--sage-dark);}
+.prog-dot.now{background:var(--lav-dark);transform:scale(1.5);}
+
+/* ── CARD ── */
+.card{
+  background:var(--white);
+  border-radius:var(--radius);
+  padding:24px 20px;
+  margin-bottom:18px;
+  border:1px solid var(--bege-mid);
+  box-shadow:0 2px 14px rgba(44,44,58,.055);
+}
+.card-top{display:flex;align-items:center;gap:11px;margin-bottom:18px;}
+.c-icon{
+  width:42px;height:42px;border-radius:13px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:19px;flex-shrink:0;
+}
+.ic-sky{background:var(--sky);}
+.ic-sage{background:var(--sage);}
+.ic-lav{background:var(--lav);}
+.ic-bege{background:var(--bege-mid);}
+.ic-rose{background:var(--rose);}
+.ic-peach{background:var(--peach);}
+.card-top h2{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;line-height:1.2;}
+.card-top span{font-size:11px;color:var(--ink-light);display:block;margin-top:2px;}
+
+/* ── TYPOGRAPHY ── */
+.label{font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink-light);margin-bottom:10px;}
+.body{font-size:14.5px;line-height:1.7;color:var(--ink);margin-bottom:13px;}
+.body strong{color:var(--lav-dark);}
+.en{font-style:italic;color:var(--sage-deep);font-weight:600;}
+.pt-note{font-size:12px;color:var(--ink-light);}
+
+/* ── TIP BOX ── */
+.tip{border-radius:13px;padding:13px 15px;margin:13px 0;display:flex;gap:10px;align-items:flex-start;}
+.tip-sky{background:var(--sky);border-left:3px solid var(--sky-dark);}
+.tip-sage{background:var(--sage);border-left:3px solid var(--sage-dark);}
+.tip-lav{background:var(--lav);border-left:3px solid var(--lav-dark);}
+.tip-rose{background:var(--rose);border-left:3px solid var(--rose-dark);}
+.tip-peach{background:var(--peach);border-left:3px solid var(--peach-dark);}
+.tip-bege{background:var(--bege-mid);border-left:3px solid var(--bege-dark);}
+.tip-icon{font-size:18px;flex-shrink:0;}
+.tip-text{font-size:13.5px;line-height:1.6;}
+.tip-text strong{font-weight:700;display:block;margin-bottom:3px;}
+
+/* ── VOCAB GRID ── */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:9px;margin:14px 0;}
+.vcard{
+  background:var(--bege);border-radius:13px;padding:11px 13px;
+  cursor:pointer;transition:all .2s;border:2px solid transparent;text-align:center;
+}
+.vcard:hover{border-color:var(--lav-mid);transform:translateY(-2px);}
+.vcard.lit{border-color:var(--lav-mid);background:var(--lav);}
+.vcard .eng{font-weight:700;font-size:14px;display:block;}
+.vcard .pt-s{font-size:11.5px;color:var(--ink-light);margin-top:2px;}
+
+/* ── AUDIO BUTTON ── */
+.audio-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  background:var(--lav);border:none;border-radius:50px;
+  padding:5px 13px;font-family:'Nunito',sans-serif;
+  font-size:12px;font-weight:700;color:var(--lav-dark);
+  cursor:pointer;transition:all .18s;margin-top:5px;
+}
+.audio-btn:hover{background:var(--lav-dark);color:#fff;}
+.audio-btn.playing{background:var(--lav-dark);color:#fff;animation:pulse .6s infinite alternate;}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.04)}}
+.audio-btn svg{width:13px;height:13px;fill:currentColor;}
+
+/* ── TABLE ── */
+.vtable{width:100%;border-collapse:collapse;}
+.vtable th{
+  background:var(--lav);padding:9px 13px;text-align:left;
+  font-size:11.5px;font-weight:700;color:var(--lav-dark);letter-spacing:.4px;
+}
+.vtable td{padding:9px 13px;border-bottom:1px solid var(--bege-mid);font-size:13.5px;vertical-align:middle;}
+.vtable tr:last-child td{border-bottom:none;}
+.vtable tr:nth-child(even) td{background:var(--bege);}
+.pron{font-family:'DM Mono',monospace;font-size:12px;color:var(--ink-light);}
+
+/* ── ORDINALS ── */
+.ord-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:13px 0;}
+.ord-item{
+  background:var(--bege);border-radius:12px;padding:11px 12px;
+  display:flex;align-items:center;gap:9px;cursor:pointer;
+  transition:all .18s;border:2px solid transparent;
+}
+.ord-item:hover{border-color:var(--lav-mid);}
+.ord-n{font-size:20px;font-weight:800;color:var(--lav-dark);min-width:34px;text-align:center;}
+.ord-word{font-size:13.5px;font-weight:700;}
+.ord-pron{font-size:10.5px;color:var(--ink-light);font-family:'DM Mono',monospace;}
+
+/* ── PRONUNCIATION BOX ── */
+.pron-box{
+  background:linear-gradient(135deg,var(--lav) 0%,var(--sky) 100%);
+  border-radius:var(--radius);padding:20px;text-align:center;margin:14px 0;
+}
+.pron-big{font-size:44px;margin-bottom:6px;}
+.pron-title{font-size:16px;font-weight:800;margin-bottom:12px;}
+.pron-step{display:flex;gap:9px;margin-bottom:8px;text-align:left;}
+.step-n{
+  background:var(--lav-dark);color:#fff;
+  width:20px;height:20px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:800;flex-shrink:0;margin-top:2px;
+}
+.pron-step p{font-size:13.5px;line-height:1.55;}
+
+/* ── DIALOGUE (SHORT) ── */
+.dlg{margin:13px 0;}
+.bubble{
+  border-radius:16px;padding:10px 14px;margin-bottom:8px;
+  max-width:88%;font-size:13.5px;line-height:1.55;
+}
+.bubble-a{background:var(--sky);margin-right:auto;border-bottom-left-radius:4px;}
+.bubble-b{background:var(--lav);margin-left:auto;text-align:right;border-bottom-right-radius:4px;}
+.bubble-who{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--ink-light);margin-bottom:3px;}
+.bubble-pt{font-size:11.5px;color:var(--ink-light);font-style:italic;margin-top:3px;}
+
+/* ── QUIZ ── */
+.qblock{margin-bottom:22px;}
+.qblock p{font-size:14.5px;font-weight:600;margin-bottom:10px;line-height:1.5;}
+.q-opts{display:flex;flex-direction:column;gap:7px;}
+.q-opt{
+  background:var(--bege);border:2px solid var(--bege-mid);
+  border-radius:11px;padding:10px 14px;font-size:13.5px;
+  cursor:pointer;transition:all .18s;text-align:left;
+  font-family:'Nunito',sans-serif;color:var(--ink);font-weight:600;
+}
+.q-opt:hover:not(:disabled){border-color:var(--lav-mid);background:var(--lav);}
+.q-opt.ok{background:#e8f4e9;border-color:var(--sage-dark);color:var(--ok);}
+.q-opt.no{background:#fceaea;border-color:var(--rose-dark);color:var(--no);}
+.q-opt:disabled{cursor:default;}
+.q-fb{margin-top:8px;font-size:12.5px;font-weight:700;padding:7px 12px;border-radius:8px;display:none;}
+.q-fb.show{display:block;}
+.q-fb.ok{background:#e8f4e9;color:var(--ok);}
+.q-fb.no{background:#fceaea;color:var(--no);}
+
+/* ── MATCH ── */
+.match-wrap{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:13px 0;}
+.match-col{display:flex;flex-direction:column;gap:7px;}
+.mi{
+  background:var(--bege);border:2px solid var(--bege-mid);
+  border-radius:11px;padding:10px 12px;font-size:13px;font-weight:700;
+  cursor:pointer;transition:all .18s;text-align:center;
+}
+.mi:hover:not(.matched):not(.sel){border-color:var(--sky-mid);}
+.mi.sel{border-color:var(--lav-dark);background:var(--lav);}
+.mi.matched{border-color:var(--sage-dark);background:#e8f4e9;color:var(--ok);cursor:default;}
+.mi.zap{border-color:var(--rose-dark);background:#fceaea;}
+.match-sc{font-size:13px;font-weight:700;color:var(--sage-deep);margin-top:10px;text-align:center;}
+
+/* ── FOOD GRID ── */
+.food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:13px 0;}
+.f-item{
+  background:var(--bege);border-radius:13px;padding:13px 8px;
+  text-align:center;cursor:pointer;transition:all .2s;border:2px solid transparent;
+}
+.f-item:hover{border-color:var(--sage-dark);transform:translateY(-2px);}
+.f-item.tick{border-color:var(--sage-dark);background:#e8f4e9;}
+.f-em{font-size:26px;display:block;margin-bottom:5px;}
+.f-en{font-size:12px;font-weight:700;}
+.f-pt{font-size:10.5px;color:var(--ink-light);}
+
+/* ── LIKE CHIPS ── */
+.like-row{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;}
+.lchip{
+  border-radius:50px;padding:7px 14px;font-size:12.5px;font-weight:700;
+  border:none;cursor:pointer;transition:all .18s;font-family:'Nunito',sans-serif;
+}
+.c-love{background:#fde8e8;color:#c0392b;}
+.c-love:hover,.c-love.on{background:#c0392b;color:#fff;}
+.c-like{background:var(--sage);color:var(--sage-deep);}
+.c-like:hover,.c-like.on{background:var(--sage-deep);color:#fff;}
+.c-dlike{background:var(--sky);color:var(--sky-dark);}
+.c-dlike:hover,.c-dlike.on{background:var(--sky-dark);color:#fff;}
+.c-hate{background:var(--lav);color:var(--lav-dark);}
+.c-hate:hover,.c-hate.on{background:var(--lav-dark);color:#fff;}
+.like-result{font-size:12.5px;color:var(--sage-deep);font-weight:700;margin-top:5px;display:none;}
+
+/* ── SENTENCE BUILDER ── */
+.sb-answer{
+  display:flex;flex-wrap:wrap;gap:7px;min-height:44px;padding:8px;
+  border:2px dashed var(--lav-mid);border-radius:11px;margin-bottom:9px;background:rgba(228,221,245,.25);
+}
+.sb-pool{
+  display:flex;flex-wrap:wrap;gap:7px;min-height:44px;padding:8px;
+  border:2px dashed var(--bege-mid);border-radius:11px;
+}
+.wchip{
+  background:var(--white);border:2px solid var(--bege-mid);
+  border-radius:8px;padding:6px 12px;font-size:13.5px;font-weight:700;
+  cursor:pointer;transition:all .15s;user-select:none;
+}
+.wchip:hover{border-color:var(--lav-mid);}
+.wchip.placed{border-color:var(--lav-dark);background:var(--lav);}
+.sb-fb{font-size:13px;font-weight:700;margin-top:9px;padding:7px 12px;border-radius:8px;display:none;}
+.sb-fb.show{display:block;}
+
+/* ── FILL BLANK ── */
+.fill-line{font-size:15px;line-height:2.4;margin-bottom:12px;}
+.blanky{
+  border:none;border-bottom:2.5px solid var(--lav-mid);background:transparent;
+  font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;color:var(--lav-dark);
+  width:110px;text-align:center;outline:none;padding:2px 5px;transition:border-color .2s;
+}
+.blanky:focus{border-color:var(--lav-dark);}
+.blanky.ok{border-color:var(--sage-dark);color:var(--ok);}
+.blanky.no{border-color:var(--rose-dark);color:var(--no);}
+
+/* ── WRITING ── */
+.write-area{
+  width:100%;border:2px solid var(--bege-mid);border-radius:13px;
+  padding:13px;font-family:'Nunito',sans-serif;font-size:14px;
+  resize:vertical;min-height:90px;background:var(--bege);
+  outline:none;transition:border-color .2s;color:var(--ink);line-height:1.6;
+}
+.write-area:focus{border-color:var(--lav-mid);background:#fff;}
+
+/* ── CULTURAL CARD ── */
+.cult-badge{
+  display:inline-block;border-radius:50px;padding:4px 13px;
+  font-size:10.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:13px;
+}
+.cb-culture{background:var(--peach);color:var(--peach-dark);}
+.cb-review{background:var(--lav);color:var(--lav-dark);}
+.cb-daily{background:var(--sage);color:var(--sage-deep);}
+
+/* ── DAILY CHALLENGE ── */
+.daily-card{
+  background:linear-gradient(135deg,var(--sage) 0%,var(--sky) 100%);
+  border-radius:var(--radius);padding:20px;margin-bottom:18px;
+}
+.daily-card h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;margin-bottom:8px;}
+.daily-card p{font-size:13.5px;line-height:1.6;color:var(--ink);}
+.daily-card .challenge-box{
+  background:rgba(255,255,255,.55);border-radius:11px;padding:12px 14px;
+  margin-top:12px;font-size:13px;line-height:1.6;font-weight:600;
+}
+
+/* ── BTN ── */
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  border:none;border-radius:50px;padding:10px 22px;
+  font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;
+  cursor:pointer;transition:all .18s;
+}
+.btn-lav{background:var(--lav-dark);color:#fff;}
+.btn-lav:hover{background:#6459a0;transform:translateY(-1px);}
+.btn-sage{background:var(--sage-deep);color:#fff;}
+.btn-sage:hover{background:#325737;}
+.btn-out{background:transparent;border:2px solid var(--bege-dark);color:var(--ink);}
+.btn-out:hover{background:var(--bege-mid);}
+.btn-sm{padding:7px 16px;font-size:12px;}
+
+/* ── DAY FOOTER ── */
+.day-footer{display:flex;justify-content:space-between;align-items:center;padding-top:8px;margin-top:6px;border-top:1px solid var(--bege-mid);}
+.time-tag{font-size:12px;color:var(--ink-light);font-weight:600;display:flex;align-items:center;gap:5px;}
+
+/* ── SCORE ── */
+.score-hero{
+  background:linear-gradient(135deg,var(--sage) 0%,var(--sky) 100%);
+  border-radius:var(--radius);padding:22px;text-align:center;margin-bottom:18px;
+}
+.score-n{font-size:52px;font-weight:800;color:var(--sage-deep);line-height:1;}
+.score-l{font-size:13px;color:var(--ink-light);margin-top:5px;}
+
+/* ── COMPLETE BANNER ── */
+.done-banner{
+  background:linear-gradient(135deg,#e8f4e9 0%,var(--lav) 100%);
+  border-radius:var(--radius);padding:24px;text-align:center;margin-top:18px;
+  border:1.5px solid var(--sage-dark);
+}
+.done-banner h3{font-family:'Playfair Display',serif;font-size:20px;margin-bottom:8px;}
+.done-banner p{font-size:13.5px;color:var(--ink-light);line-height:1.6;}
+.teacher-sig{margin-top:14px;font-size:13px;font-weight:700;color:var(--lav-dark);}
+
+/* ── BACK TO TOP ── */
+#topBtn{
+  position:fixed;bottom:22px;right:20px;
+  background:var(--lav-dark);color:#fff;border:none;
+  border-radius:50%;width:42px;height:42px;font-size:17px;
+  cursor:pointer;box-shadow:0 4px 16px rgba(123,106,181,.35);
+  display:none;align-items:center;justify-content:center;transition:all .18s;
+}
+#topBtn.show{display:flex;}
+#topBtn:hover{transform:scale(1.1);}
+
+.divider{height:1px;background:var(--bege-mid);margin:20px 0;}
+.mt12{margin-top:12px;} .mt8{margin-top:8px;} .mb0{margin-bottom:0;}
+@media(max-width:420px){
+  .ord-grid{grid-template-columns:1fr;}
+  .food-grid{grid-template-columns:repeat(2,1fr);}
+  .match-wrap .mi{font-size:12px;padding:8px 9px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="week-chip">✨ Week 2 · A1 Beginner</div>
+  <h1>Let's learn <em>English!</em> 🌿</h1>
+  <p class="hero-sub">5 mini-aulas de 5 a 10 minutos cada.<br>Leve, prático e no seu ritmo!</p>
+  <div class="hero-pills">
+    <span class="hero-pill">📅 Meses & Dias</span>
+    <span class="hero-pill">🔢 Ordinais</span>
+    <span class="hero-pill">🍕 Comidas</span>
+    <span class="hero-pill">🗣️ Restaurante</span>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<div class="day-nav">
+  <button class="day-btn active" onclick="showDay(1,this)">Day 1</button>
+  <button class="day-btn" onclick="showDay(2,this)">Day 2</button>
+  <button class="day-btn" onclick="showDay(3,this)">Day 3</button>
+  <button class="day-btn" onclick="showDay(4,this)">Day 4</button>
+  <button class="day-btn" onclick="showDay(5,this)">Day 5</button>
+  <button class="day-btn rev-btn" onclick="showDay(6,this)">🎯 Revisão</button>
+</div>
+
+<div class="container">
+
+<!-- ═══════════════════════════ DAY 1 ═══════════════════════════ -->
+<div id="day1" class="day-panel visible">
+  <div class="prog-row"><div class="prog-dot now"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+
+  <!-- Daily Challenge -->
+  <div class="daily-card">
+    <span class="cult-badge cb-daily">🌅 Desafio do Dia</span>
+    <h3>Comece pequeno!</h3>
+    <p>Antes de estudar, troque o idioma do seu celular para inglês por 24 horas. Você já vai se deparar com palavras novas sem nem perceber!</p>
+    <div class="challenge-box">📱 Settings → General → Language → English<br>Depois volte e me conta como foi! 😄</div>
+  </div>
+
+  <!-- MONTHS -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-sky">📅</div><div><h2>Months of the Year</h2><span>Meses do ano — clique para ouvir!</span></div></div>
+    <p class="body">Em inglês, os meses <strong>sempre começam com letra maiúscula</strong>. Clique em qualquer mês para ouvir a pronúncia!</p>
+    <div class="vocab-grid" id="months-grid">
+      <div class="vcard" onclick="speak('January',this)"><span class="eng">January</span><span class="pt-s">Janeiro</span><button class="audio-btn" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg> Ouvir</button></div>
+      <div class="vcard" onclick="speak('February',this)"><span class="eng">February</span><span class="pt-s">Fevereiro</span><button class="audio-btn" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg> Ouvir</button></div>
+      <div class="vcard" onclick="speak('March',this)"><span class="eng">March</span><span class="pt-s">Março</span><button class="audio-btn" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg> Ouvir</button></div>
+      <div class="vcard" onclick="speak('April',this)"><span class="eng">April</span><span class="pt-s">Abril</span><button class="audio-btn" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg> Ouvir</button></div>
+      <div class="vcard" onclick="speak('May',this)"><span class="eng">May</span><span class="pt-s">Maio</span><button class="audio-btn" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg> Ouvir</button></div>
+      <div class="vcard" onclick="speak('June',this)"><span class="eng">June</span><span class="pt-s">Junho</span><button class="audio-btn" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg> Ouvir</button></div>
+      <div class="vcard" onclick="speak('July',this)"><span class="eng">July</span><span class="pt-s">Julho</span><button class="audio-btn" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg> Ouvir</button></div>
+      <div class="vcard" onclick="speak('August',this)"><span class="eng">August</span><span class="pt-s">Agosto</span><button class="audio-btn" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg> Ouvir</button></div>
+      <div class="vcard" onclick="speak('September',this)"><span class="eng">September</span><span class="pt-s">Setembro</span><button class="audio-btn" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg> Ouvir</button></div>
+      <div class="vcard" onclick="speak('October',this)"><span class="eng">October</span><span class="pt-s">Outubro</span><button class="audio-btn" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg> Ouvir</button></div>
+      <div class="vcard" onclick="speak('November',this)"><span class="eng">November</span><span class="pt-s">Novembro</span><button class="audio-btn" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg> Ouvir</button></div>
+      <div class="vcard" onclick="speak('December',this)"><span class="eng">December</span><span class="pt-s">Dezembro</span><button class="audio-btn" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg> Ouvir</button></div>
+    </div>
+    <div class="tip tip-sky">
+      <span class="tip-icon">✈️</span>
+      <div class="tip-text"><strong>Dica de viagem:</strong> No aeroporto, seu boarding pass vai mostrar abreviações: Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec.</div>
+    </div>
+  </div>
+
+  <!-- DAYS -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-lav">🗓️</div><div><h2>Days of the Week</h2><span>Dias da semana — clique para ouvir!</span></div></div>
+    <table class="vtable">
+      <tr><th>English</th><th>Português</th><th>Como ler</th><th>🔊</th></tr>
+      <tr><td><strong>Monday</strong></td><td>Segunda</td><td class="pron">MUN-day</td><td><button class="audio-btn btn-sm" onclick="speak('Monday')"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></button></td></tr>
+      <tr><td><strong>Tuesday</strong></td><td>Terça</td><td class="pron">TYUZ-day</td><td><button class="audio-btn btn-sm" onclick="speak('Tuesday')"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></button></td></tr>
+      <tr><td><strong>Wednesday</strong></td><td>Quarta</td><td class="pron">WENZ-day</td><td><button class="audio-btn btn-sm" onclick="speak('Wednesday')"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></button></td></tr>
+      <tr><td><strong>Thursday</strong></td><td>Quinta</td><td class="pron">THURZ-day</td><td><button class="audio-btn btn-sm" onclick="speak('Thursday')"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></button></td></tr>
+      <tr><td><strong>Friday</strong></td><td>Sexta</td><td class="pron">FRY-day</td><td><button class="audio-btn btn-sm" onclick="speak('Friday')"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></button></td></tr>
+      <tr><td><strong>Saturday</strong></td><td>Sábado</td><td class="pron">SA-ter-day</td><td><button class="audio-btn btn-sm" onclick="speak('Saturday')"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></button></td></tr>
+      <tr><td><strong>Sunday</strong></td><td>Domingo</td><td class="pron">SUN-day</td><td><button class="audio-btn btn-sm" onclick="speak('Sunday')"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg></button></td></tr>
+    </table>
+    <div class="tip tip-lav mt12">
+      <span class="tip-icon">💡</span>
+      <div class="tip-text"><strong>Truque de memória:</strong> Wednesday tem um "d" silencioso no meio. Fale só WENZ-day. Repita 3 vezes agora!</div>
+    </div>
+  </div>
+
+  <!-- CULTURAL -->
+  <div class="card">
+    <span class="cult-badge cb-culture">🌍 Curiosidade Cultural</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:18px;margin-bottom:10px">Como americanos escrevem datas</h2>
+    <p class="body">Nos EUA, a ordem da data é diferente do Brasil — e isso pode te confundir no aeroporto ou ao preencher formulários!</p>
+    <table class="vtable">
+      <tr><th>🇺🇸 EUA</th><th>🇧🇷 Brasil</th><th>Se diz assim</th></tr>
+      <tr><td><strong>July 4</strong></td><td>04/07</td><td class="pron">July fourth</td></tr>
+      <tr><td><strong>December 25</strong></td><td>25/12</td><td class="pron">December twenty-fifth</td></tr>
+      <tr><td><strong>March 1</strong></td><td>01/03</td><td class="pron">March first</td></tr>
+    </table>
+    <div class="tip tip-rose mt12">
+      <span class="tip-icon">⚠️</span>
+      <div class="tip-text"><strong>Atenção!</strong> 01/05 nos EUA significa 1º de janeiro — não 1º de maio! Sempre escreva o mês por extenso em formulários.</div>
+    </div>
+  </div>
+
+  <!-- QUIZ DAY 1 -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-lav">✏️</div><div><h2>Exercício rápido</h2><span>Escolha a resposta correta</span></div></div>
+    <div class="qblock" id="q1a">
+      <p>1. Qual mês vem depois de <strong>October</strong>?</p>
+      <div class="q-opts">
+        <button class="q-opt" onclick="checkQ(this,'q1a',false)">September</button>
+        <button class="q-opt" onclick="checkQ(this,'q1a',true)">November</button>
+        <button class="q-opt" onclick="checkQ(this,'q1a',false)">December</button>
+      </div>
+      <div class="q-fb" id="fb-q1a"></div>
+    </div>
+    <div class="qblock" id="q1b">
+      <p>2. Como os americanos escrevem <strong>3 de fevereiro</strong>?</p>
+      <div class="q-opts">
+        <button class="q-opt" onclick="checkQ(this,'q1b',false)">03/02/2025</button>
+        <button class="q-opt" onclick="checkQ(this,'q1b',true)">February 3, 2025</button>
+        <button class="q-opt" onclick="checkQ(this,'q1b',false)">02/03/2025</button>
+      </div>
+      <div class="q-fb" id="fb-q1b"></div>
+    </div>
+    <div class="qblock" id="q1c">
+      <p>3. Que dia vem depois de <strong>Wednesday</strong>?</p>
+      <div class="q-opts">
+        <button class="q-opt" onclick="checkQ(this,'q1c',false)">Tuesday</button>
+        <button class="q-opt" onclick="checkQ(this,'q1c',true)">Thursday</button>
+        <button class="q-opt" onclick="checkQ(this,'q1c',false)">Friday</button>
+      </div>
+      <div class="q-fb" id="fb-q1c"></div>
+    </div>
+  </div>
+
+  <div class="day-footer">
+    <span class="time-tag">⏱️ ~8 min</span>
+    <button class="btn btn-lav btn-sm" onclick="showDay(2,document.querySelectorAll('.day-btn')[1])">Day 2 →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ DAY 2 ═══════════════════════════ -->
+<div id="day2" class="day-panel">
+  <div class="prog-row"><div class="prog-dot done"></div><div class="prog-dot now"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+
+  <!-- Daily Challenge -->
+  <div class="daily-card">
+    <span class="cult-badge cb-daily">🌅 Desafio do Dia</span>
+    <h3>Datas em inglês!</h3>
+    <p>Hoje, toda vez que você olhar a data no celular, diga em inglês em voz alta (ou mentalmente). Por exemplo: "Today is Thursday, October third."</p>
+    <div class="challenge-box">🗣️ Fórmula: <strong>Today is [day], [month] [ordinal].</strong></div>
+  </div>
+
+  <!-- ORDINALS -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-lav">🔢</div><div><h2>Ordinal Numbers</h2><span>Números ordinais — usados para datas!</span></div></div>
+    <p class="body">Os números ordinais indicam <strong>ordem ou posição</strong>. Em inglês, eles são usados principalmente para <strong>datas</strong> e <strong>andares de hotel</strong>.</p>
+    <div class="tip tip-peach">
+      <span class="tip-icon">✈️</span>
+      <div class="tip-text"><strong>Na prática:</strong> "My flight is on <span class="en">March third</span>." / "I'm on the <span class="en">fifth floor</span>."</div>
+    </div>
+    <p class="label mt12">Clique em cada um para ouvir!</p>
+    <div class="ord-grid">
+      <div class="ord-item" onclick="speak('first')"><span class="ord-n">1st</span><div><div class="ord-word">first</div><div class="ord-pron">FURST</div></div></div>
+      <div class="ord-item" onclick="speak('second')"><span class="ord-n">2nd</span><div><div class="ord-word">second</div><div class="ord-pron">SEC-und</div></div></div>
+      <div class="ord-item" onclick="speak('third')"><span class="ord-n">3rd</span><div><div class="ord-word">third</div><div class="ord-pron">THURD</div></div></div>
+      <div class="ord-item" onclick="speak('fourth')"><span class="ord-n">4th</span><div><div class="ord-word">fourth</div><div class="ord-pron">FORTH</div></div></div>
+      <div class="ord-item" onclick="speak('fifth')"><span class="ord-n">5th</span><div><div class="ord-word">fifth</div><div class="ord-pron">FIFTH</div></div></div>
+      <div class="ord-item" onclick="speak('sixth')"><span class="ord-n">6th</span><div><div class="ord-word">sixth</div><div class="ord-pron">SIXTH</div></div></div>
+      <div class="ord-item" onclick="speak('seventh')"><span class="ord-n">7th</span><div><div class="ord-word">seventh</div><div class="ord-pron">SEV-unth</div></div></div>
+      <div class="ord-item" onclick="speak('eighth')"><span class="ord-n">8th</span><div><div class="ord-word">eighth</div><div class="ord-pron">AYTH</div></div></div>
+      <div class="ord-item" onclick="speak('ninth')"><span class="ord-n">9th</span><div><div class="ord-word">ninth</div><div class="ord-pron">NYNTH</div></div></div>
+      <div class="ord-item" onclick="speak('tenth')"><span class="ord-n">10th</span><div><div class="ord-word">tenth</div><div class="ord-pron">TENTH</div></div></div>
+      <div class="ord-item" onclick="speak('twentieth')"><span class="ord-n">20th</span><div><div class="ord-word">twentieth</div><div class="ord-pron">TWEN-tee-uth</div></div></div>
+      <div class="ord-item" onclick="speak('twenty first')"><span class="ord-n">21st</span><div><div class="ord-word">twenty-first</div><div class="ord-pron">TWEN-tee-FURST</div></div></div>
+    </div>
+    <div class="tip tip-bege mt12">
+      <span class="tip-icon">🧠</span>
+      <div class="tip-text"><strong>O padrão:</strong> A maioria só adiciona <strong>-th</strong> (four→fourth, six→sixth). Os que fogem à regra: <strong>1st, 2nd, 3rd, 5th, 8th, 9th</strong>. Vale decorar!</div>
+    </div>
+  </div>
+
+  <!-- TH SOUND -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-sky">👅</div><div><h2>Dica de pronúncia: o som "th"</h2><span>O som que não existe em português!</span></div></div>
+    <div class="pron-box">
+      <div class="pron-big">😛</div>
+      <div class="pron-title">Coloque a língua nos dentes!</div>
+      <div class="pron-step"><div class="step-n">1</div><p>Coloque a <strong>ponta da língua</strong> levemente entre os dentes superiores e inferiores.</p></div>
+      <div class="pron-step"><div class="step-n">2</div><p>Sopre o ar para fora — <strong>sem vibrar</strong> a garganta. É um sopro suave.</p></div>
+      <div class="pron-step"><div class="step-n">3</div><p>Pratique: <strong>third… fourth… fifth…</strong> Sente o ar na língua? 🎯</p></div>
+    </div>
+    <div class="tip tip-sage">
+      <span class="tip-icon">💚</span>
+      <div class="tip-text">Não precisa ser perfeito! Qualquer esforço com o "th" já te faz soar muito mais natural. O importante é tentar!</div>
+    </div>
+    <p class="label mt12">Ouça e repita:</p>
+    <div style="display:flex;gap:9px;flex-wrap:wrap">
+      <button class="audio-btn" onclick="speak('third, fourth, fifth')">🔊 third · fourth · fifth</button>
+      <button class="audio-btn" onclick="speak('the third of March')">🔊 the third of March</button>
+    </div>
+  </div>
+
+  <!-- CULTURAL -->
+  <div class="card">
+    <span class="cult-badge cb-culture">🌍 Curiosidade Cultural</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:18px;margin-bottom:10px">Por que os meses têm esses nomes?</h2>
+    <p class="body">Os nomes dos meses em inglês vêm do <strong>latim e da mitologia</strong> — igualzinho ao português! Olha as semelhanças:</p>
+    <table class="vtable">
+      <tr><th>Mês</th><th>Origem</th><th>Curiosidade</th></tr>
+      <tr><td><strong>January</strong></td><td>Janus (deus romano)</td><td class="pt-note">Deus das portas e novos começos</td></tr>
+      <tr><td><strong>March</strong></td><td>Mars (deus da guerra)</td><td class="pt-note">Mês em que guerras começavam</td></tr>
+      <tr><td><strong>August</strong></td><td>Augusto César</td><td class="pt-note">Homenagem ao imperador romano</td></tr>
+      <tr><td><strong>December</strong></td><td><em>Decem</em> = dez</td><td class="pt-note">Era o 10º mês no calendário antigo!</td></tr>
+    </table>
+    <div class="tip tip-lav mt12">
+      <span class="tip-icon">🤯</span>
+      <div class="tip-text">September, October, November e December vêm de <em>septem</em> (7), <em>octo</em> (8), <em>novem</em> (9) e <em>decem</em> (10). O calendário já teve só 10 meses!</div>
+    </div>
+  </div>
+
+  <!-- QUIZ DAY 2 -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-lav">✏️</div><div><h2>Exercício</h2><span>Complete com o ordinal correto</span></div></div>
+    <div class="qblock" id="q2a">
+      <p>1. My birthday is on June ___. (6 de junho)</p>
+      <div class="q-opts">
+        <button class="q-opt" onclick="checkQ(this,'q2a',false)">six</button>
+        <button class="q-opt" onclick="checkQ(this,'q2a',true)">sixth</button>
+        <button class="q-opt" onclick="checkQ(this,'q2a',false)">sixteenth</button>
+      </div>
+      <div class="q-fb" id="fb-q2a"></div>
+    </div>
+    <div class="qblock" id="q2b">
+      <p>2. Como se lê <strong>3rd</strong> em inglês?</p>
+      <div class="q-opts">
+        <button class="q-opt" onclick="checkQ(this,'q2b',false)">threeth</button>
+        <button class="q-opt" onclick="checkQ(this,'q2b',true)">third</button>
+        <button class="q-opt" onclick="checkQ(this,'q2b',false)">thrird</button>
+      </div>
+      <div class="q-fb" id="fb-q2b"></div>
+    </div>
+  </div>
+
+  <div class="day-footer">
+    <span class="time-tag">⏱️ ~9 min</span>
+    <button class="btn btn-lav btn-sm" onclick="showDay(3,document.querySelectorAll('.day-btn')[2])">Day 3 →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ DAY 3 ═══════════════════════════ -->
+<div id="day3" class="day-panel">
+  <div class="prog-row"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot now"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+
+  <!-- Daily Challenge -->
+  <div class="daily-card">
+    <span class="cult-badge cb-daily">🌅 Desafio do Dia</span>
+    <h3>Inglês na cozinha!</h3>
+    <p>Hoje, abra a geladeira ou o armário e fale em inglês o nome de 5 alimentos que você ver. Use o vocabulário de hoje como referência!</p>
+    <div class="challenge-box">🧀 "This is cheese." 🍳 "These are eggs." — tente!</div>
+  </div>
+
+  <!-- FOOD -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-sage">🍕</div><div><h2>Food &amp; Drinks</h2><span>Comidas e bebidas — toque para marcar!</span></div></div>
+    <p class="body">Toque em cada item para marcá-lo como aprendido. Tente falar em voz alta enquanto toca!</p>
+    <p class="label">🍽️ Foods</p>
+    <div class="food-grid">
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">🍕</span><span class="f-en">pizza</span><span class="f-pt">pizza</span></div>
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">🍔</span><span class="f-en">burger</span><span class="f-pt">hambúrguer</span></div>
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">🥗</span><span class="f-en">salad</span><span class="f-pt">salada</span></div>
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">🍝</span><span class="f-en">pasta</span><span class="f-pt">macarrão</span></div>
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">🥩</span><span class="f-en">steak</span><span class="f-pt">bife</span></div>
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">🍳</span><span class="f-en">eggs</span><span class="f-pt">ovos</span></div>
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">🍞</span><span class="f-en">bread</span><span class="f-pt">pão</span></div>
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">🥐</span><span class="f-en">croissant</span><span class="f-pt">croissant</span></div>
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">🍣</span><span class="f-en">sushi</span><span class="f-pt">sushi</span></div>
+    </div>
+    <p class="label mt12">☕ Drinks</p>
+    <div class="food-grid">
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">☕</span><span class="f-en">coffee</span><span class="f-pt">café</span></div>
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">🍵</span><span class="f-en">tea</span><span class="f-pt">chá</span></div>
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">💧</span><span class="f-en">water</span><span class="f-pt">água</span></div>
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">🥤</span><span class="f-en">juice</span><span class="f-pt">suco</span></div>
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">🥛</span><span class="f-en">milk</span><span class="f-pt">leite</span></div>
+      <div class="f-item" onclick="toggleFood(this)"><span class="f-em">🍺</span><span class="f-en">beer</span><span class="f-pt">cerveja</span></div>
+    </div>
+  </div>
+
+  <!-- I LIKE / I LOVE -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-rose">❤️</div><div><h2>Expressões de gosto</h2><span>I like, I love, I don't like, I hate</span></div></div>
+    <table class="vtable" style="margin-bottom:16px">
+      <tr><th>Em inglês</th><th>Em português</th><th>Sentimento</th></tr>
+      <tr><td><strong>I love</strong></td><td>Eu adoro</td><td>😍 Muito positivo</td></tr>
+      <tr><td><strong>I like</strong></td><td>Eu gosto</td><td>😊 Positivo</td></tr>
+      <tr><td><strong>I don't like</strong></td><td>Não gosto</td><td>😕 Negativo</td></tr>
+      <tr><td><strong>I hate</strong></td><td>Eu odeio</td><td>😤 Muito negativo</td></tr>
+    </table>
+    <p class="label">🎮 Escolha sua opinião sobre cada alimento:</p>
+
+    <div style="margin-bottom:16px">
+      <p style="font-size:14px;font-weight:700;margin-bottom:7px">🍕 Pizza</p>
+      <div class="like-row">
+        <button class="lchip c-love" onclick="pickLike(this,'lk-pizza','I love pizza!')">I love it!</button>
+        <button class="lchip c-like" onclick="pickLike(this,'lk-pizza','I like pizza.')">I like it</button>
+        <button class="lchip c-dlike" onclick="pickLike(this,'lk-pizza','I don\'t like pizza.')">I don't like it</button>
+        <button class="lchip c-hate" onclick="pickLike(this,'lk-pizza','I hate pizza!')">I hate it</button>
+      </div>
+      <div class="like-result" id="lk-pizza"></div>
+    </div>
+    <div style="margin-bottom:16px">
+      <p style="font-size:14px;font-weight:700;margin-bottom:7px">☕ Coffee</p>
+      <div class="like-row">
+        <button class="lchip c-love" onclick="pickLike(this,'lk-coffee','I love coffee!')">I love it!</button>
+        <button class="lchip c-like" onclick="pickLike(this,'lk-coffee','I like coffee.')">I like it</button>
+        <button class="lchip c-dlike" onclick="pickLike(this,'lk-coffee','I don\'t like coffee.')">I don't like it</button>
+        <button class="lchip c-hate" onclick="pickLike(this,'lk-coffee','I hate coffee!')">I hate it</button>
+      </div>
+      <div class="like-result" id="lk-coffee"></div>
+    </div>
+    <div>
+      <p style="font-size:14px;font-weight:700;margin-bottom:7px">🥗 Salad</p>
+      <div class="like-row">
+        <button class="lchip c-love" onclick="pickLike(this,'lk-salad','I love salad!')">I love it!</button>
+        <button class="lchip c-like" onclick="pickLike(this,'lk-salad','I like salad.')">I like it</button>
+        <button class="lchip c-dlike" onclick="pickLike(this,'lk-salad','I don\'t like salad.')">I don't like it</button>
+        <button class="lchip c-hate" onclick="pickLike(this,'lk-salad','I hate salad!')">I hate it</button>
+      </div>
+      <div class="like-result" id="lk-salad"></div>
+    </div>
+  </div>
+
+  <!-- CULTURAL -->
+  <div class="card">
+    <span class="cult-badge cb-culture">🌍 Curiosidade Cultural</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:18px;margin-bottom:10px">🍳 Café da manhã: Brasil vs EUA</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0">
+      <div style="background:var(--sky);border-radius:13px;padding:13px;text-align:center">
+        <div style="font-size:20px;margin-bottom:5px">🇺🇸</div>
+        <div style="font-size:12px;font-weight:800;color:var(--sky-dark);margin-bottom:7px">American Breakfast</div>
+        <div style="font-size:12px;line-height:1.9">🥞 Pancakes<br>🍳 Scrambled eggs<br>🥓 Bacon<br>🍊 Orange juice<br>☕ Drip coffee</div>
+      </div>
+      <div style="background:var(--sage);border-radius:13px;padding:13px;text-align:center">
+        <div style="font-size:20px;margin-bottom:5px">🇧🇷</div>
+        <div style="font-size:12px;font-weight:800;color:var(--sage-deep);margin-bottom:7px">Café da manhã</div>
+        <div style="font-size:12px;line-height:1.9">🥛 Café com leite<br>🍞 Pão francês<br>🧀 Queijo / frios<br>🍎 Frutas<br>🍰 Bolo</div>
+      </div>
+    </div>
+    <div class="tip tip-lav">
+      <span class="tip-icon">🏨</span>
+      <div class="tip-text">Em hotéis americanos, <em>"continental breakfast"</em> = pão, pastries, suco e café. Já <em>"full breakfast"</em> inclui ovos e bacon quentes!</div>
+    </div>
+  </div>
+
+  <div class="day-footer">
+    <span class="time-tag">⏱️ ~8 min</span>
+    <button class="btn btn-lav btn-sm" onclick="showDay(4,document.querySelectorAll('.day-btn')[3])">Day 4 →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ DAY 4 ═══════════════════════════ -->
+<div id="day4" class="day-panel">
+  <div class="prog-row"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot now"></div><div class="prog-dot"></div></div>
+
+  <!-- Daily Challenge -->
+  <div class="daily-card">
+    <span class="cult-badge cb-daily">🌅 Desafio do Dia</span>
+    <h3>A frase que salva qualquer situação! 💧</h3>
+    <p>Hoje pratique esta frase em voz alta pelo menos 5 vezes. Simples, educada e funciona em qualquer lugar do mundo de língua inglesa!</p>
+    <div class="challenge-box">🗣️ <strong>"Can I have some water, please?"</strong><br><span style="font-size:12px;font-weight:400">Pode me dar um pouco de água, por favor?</span></div>
+  </div>
+
+  <!-- RESTAURANT PHRASES -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-bege">🍽️</div><div><h2>No restaurante</h2><span>As frases que você já pode usar agora!</span></div></div>
+    <p class="body">Estas frases usam estruturas que você já conhece. <strong>Simples, educadas e funcionam de verdade!</strong></p>
+
+    <div class="tip tip-lav" style="margin-bottom:14px">
+      <span class="tip-icon">💡</span>
+      <div class="tip-text"><strong>Duas formas de pedir educadamente:</strong><br>
+        • <em>Can I have…?</em> — informal e muito comum<br>
+        • <em>May I have…?</em> — um pouquinho mais formal<br>
+        As duas são ótimas! Escolha a que soar mais natural pra você.
+      </div>
+    </div>
+
+    <table class="vtable">
+      <tr><th>Em inglês</th><th>Em português</th></tr>
+      <tr><td><strong>Can I have some water, please?</strong></td><td>Pode me dar água, por favor?</td></tr>
+      <tr><td><strong>May I have the menu, please?</strong></td><td>Pode me trazer o cardápio?</td></tr>
+      <tr><td><strong>Can I have a coffee, please?</strong></td><td>Pode me dar um café, por favor?</td></tr>
+      <tr><td><strong>A table for two, please.</strong></td><td>Mesa para dois, por favor.</td></tr>
+      <tr><td><strong>Check, please.</strong></td><td>A conta, por favor.</td></tr>
+      <tr><td><strong>It was delicious!</strong></td><td>Estava delicioso!</td></tr>
+    </table>
+
+    <p class="label mt12">Ouça as frases:</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="audio-btn" onclick="speak('Can I have some water, please?')">🔊 Can I have water</button>
+      <button class="audio-btn" onclick="speak('May I have the menu, please?')">🔊 May I have the menu</button>
+      <button class="audio-btn" onclick="speak('Check, please.')">🔊 Check, please</button>
+    </div>
+  </div>
+
+  <!-- MINI DIALOGUE — foco na água, situação real -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-sky">💬</div><div><h2>Mini-diálogo: Pedindo água 💧</h2><span>Uma situação que acontece de verdade!</span></div></div>
+    <div class="tip tip-rose" style="margin-bottom:14px">
+      <span class="tip-icon">💬</span>
+      <div class="tip-text"><strong>Curiosidade:</strong> Nos EUA, água não costuma ser servida automaticamente em todos os restaurantes — às vezes você precisa pedir! Então essa frase é de ouro.</div>
+    </div>
+    <div class="dlg">
+      <div class="bubble-who">Waiter</div>
+      <div class="bubble bubble-a">Hi! What can I get for you?<div class="bubble-pt">Olá! O que posso trazer para você?</div></div>
+      <div class="bubble-who" style="text-align:right">Você</div>
+      <div class="bubble bubble-b">Can I have some water, please?<div class="bubble-pt">Pode me dar água, por favor?</div></div>
+      <div class="bubble bubble-a">Of course! Still or sparkling?<div class="bubble-pt">Claro! Com gás ou sem gás?</div></div>
+      <div class="bubble bubble-b">Still, please. Thank you!<div class="bubble-pt">Sem gás, por favor. Obrigada!</div></div>
+    </div>
+    <button class="audio-btn" onclick="speak('Hi, what can I get for you? Can I have some water please? Of course! Still or sparkling? Still please, thank you!')">🔊 Ouvir o diálogo</button>
+    <div class="tip tip-sage mt12">
+      <span class="tip-icon">💡</span>
+      <div class="tip-text"><strong>Still</strong> = sem gás &nbsp;|&nbsp; <strong>Sparkling</strong> = com gás<br>Duas palavras novas de bônus para a sua próxima viagem! 🌟</div>
+    </div>
+  </div>
+
+  <!-- SENTENCE BUILDER -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-lav">🧩</div><div><h2>Monte a frase!</h2><span>Toque nas palavras na ordem correta</span></div></div>
+    <p class="body">Arrume as palavras para formar: <strong>"Can I have some water, please?"</strong></p>
+    <div class="sb-answer" id="sb1-ans"></div>
+    <div class="sb-pool" id="sb1-pool">
+      <div class="wchip" onclick="moveWord(this,'sb1')">have</div>
+      <div class="wchip" onclick="moveWord(this,'sb1')">please?</div>
+      <div class="wchip" onclick="moveWord(this,'sb1')">Can</div>
+      <div class="wchip" onclick="moveWord(this,'sb1')">some</div>
+      <div class="wchip" onclick="moveWord(this,'sb1')">I</div>
+      <div class="wchip" onclick="moveWord(this,'sb1')">water,</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+      <button class="btn btn-lav btn-sm" onclick="checkSB('sb1',['Can','I','have','some','water,','please?'])">Verificar ✓</button>
+      <button class="btn btn-out btn-sm" onclick="resetSB('sb1')">Recomeçar</button>
+    </div>
+    <div class="sb-fb" id="sb1-fb"></div>
+  </div>
+
+  <!-- CULTURAL -->
+  <div class="card">
+    <span class="cult-badge cb-culture">🌍 Curiosidade Cultural</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:18px;margin-bottom:10px">💳 A cultura da gorjeta nos EUA</h2>
+    <p class="body">Nos EUA, a gorjeta (<em>tip</em>) não é opcional — faz parte da renda dos garçons!</p>
+    <table class="vtable">
+      <tr><th>Situação</th><th>Gorjeta esperada</th></tr>
+      <tr><td>Restaurante</td><td><strong>15 a 20%</strong></td></tr>
+      <tr><td>Café / bar</td><td><strong>10 a 15%</strong></td></tr>
+      <tr><td>Delivery</td><td><strong>10 a 15%</strong></td></tr>
+      <tr><td>Táxi / Uber</td><td><strong>10%</strong></td></tr>
+    </table>
+    <div class="tip tip-peach mt12">
+      <span class="tip-icon">💡</span>
+      <div class="tip-text">Sempre planeje a gorjeta no orçamento da viagem. Uma dica simples: <strong>dobre o imposto</strong> (tax) que aparece na conta — fica perto de 15–18%.</div>
+    </div>
+  </div>
+
+  <div class="day-footer">
+    <span class="time-tag">⏱️ ~9 min</span>
+    <button class="btn btn-lav btn-sm" onclick="showDay(5,document.querySelectorAll('.day-btn')[4])">Day 5 →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ DAY 5 ═══════════════════════════ -->
+<div id="day5" class="day-panel">
+  <div class="prog-row"><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot done"></div><div class="prog-dot now"></div></div>
+
+  <!-- Daily Challenge -->
+  <div class="daily-card">
+    <span class="cult-badge cb-daily">🌅 Desafio do Dia</span>
+    <h3>Fale sua data de aniversário!</h3>
+    <p>Pratique dizendo sua data de aniversário em inglês. Use a fórmula que você vai aprender hoje e repita 5 vezes!</p>
+    <div class="challenge-box">🗣️ <strong>My birthday is on [Month] [ordinal].</strong></div>
+  </div>
+
+  <!-- DATES IN ENGLISH -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-lav">📅</div><div><h2>Dizendo datas em inglês</h2><span>Tudo junto agora!</span></div></div>
+    <p class="body">Em inglês, falamos o ordinal mesmo quando escrevemos só o número. Veja como fica:</p>
+    <table class="vtable">
+      <tr><th>Escrito</th><th>Falado</th><th>🔊</th></tr>
+      <tr><td>January 1st</td><td><em>January first</em></td><td><button class="audio-btn btn-sm" onclick="speak('January first')">🔊</button></td></tr>
+      <tr><td>March 21st</td><td><em>March twenty-first</em></td><td><button class="audio-btn btn-sm" onclick="speak('March twenty first')">🔊</button></td></tr>
+      <tr><td>October 3rd</td><td><em>October third</em></td><td><button class="audio-btn btn-sm" onclick="speak('October third')">🔊</button></td></tr>
+      <tr><td>December 25th</td><td><em>December twenty-fifth</em></td><td><button class="audio-btn btn-sm" onclick="speak('December twenty fifth')">🔊</button></td></tr>
+    </table>
+    <div class="tip tip-lav mt12">
+      <span class="tip-icon">📌</span>
+      <div class="tip-text"><strong>Fórmula do aniversário:</strong><br><em>My birthday is on [Month] [ordinal].</em><br>Exemplo: "My birthday is on July fifteenth."</div>
+    </div>
+
+    <div class="divider"></div>
+    <p class="label">Complete as frases:</p>
+    <div class="fill-line">Meu voo é em <input class="blanky" id="f1" placeholder="?"> third.<br><span class="pt-note">(Mês de 31 dias que vem antes de abril. Começa com M.)</span></div>
+    <div class="fill-line">My birthday is on June <input class="blanky" id="f2" placeholder="?>">.<br><span class="pt-note">(O 5º dia. Fale o ordinal!)</span></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+      <button class="btn btn-lav btn-sm" onclick="checkFill()">Verificar ✓</button>
+      <button class="btn btn-out btn-sm" onclick="resetFill()">Tentar de novo</button>
+    </div>
+    <div class="q-fb" id="fill-fb" style="margin-top:10px"></div>
+  </div>
+
+  <!-- MINI DIALOGUE 2 -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-sky">💬</div><div><h2>Mini-diálogo: Aniversário</h2><span>Situação real do dia a dia</span></div></div>
+    <div class="dlg">
+      <div class="bubble-who">Friend</div>
+      <div class="bubble bubble-a">When is your birthday?<div class="bubble-pt">Quando é seu aniversário?</div></div>
+      <div class="bubble-who" style="text-align:right">Você</div>
+      <div class="bubble bubble-b">My birthday is on March twenty-first.<div class="bubble-pt">Meu aniversário é em 21 de março.</div></div>
+      <div class="bubble bubble-a">Oh, that's soon! Do you like cake?<div class="bubble-pt">Ah, já está chegando! Você gosta de bolo?</div></div>
+      <div class="bubble bubble-b">I love cake! 🎂<div class="bubble-pt">Eu adoro bolo!</div></div>
+    </div>
+    <button class="audio-btn mt8" onclick="speak('When is your birthday? My birthday is on March twenty-first. Oh, that is soon! Do you like cake? I love cake!')">🔊 Ouvir o diálogo</button>
+  </div>
+
+  <!-- WRITING CHALLENGE -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-sage">✍️</div><div><h2>Desafio de escrita</h2><span>Use tudo que você aprendeu esta semana!</span></div></div>
+    <div class="tip tip-lav" style="margin-bottom:14px">
+      <span class="tip-icon">💡</span>
+      <div class="tip-text">
+        <strong>Tente incluir:</strong><br>
+        ✅ Seu aniversário (mês + ordinal)<br>
+        ✅ I love / I like / I don't like + comida<br>
+        ✅ Um dia da semana favorito<br>
+        ✅ Uma frase de restaurante com <em>Can I have…?</em>
+      </div>
+    </div>
+    <textarea class="write-area" rows="6" placeholder="Exemplo:&#10;My birthday is on July fifteenth.&#10;I love coffee and pizza.&#10;I don't like salad.&#10;On Saturdays, I like to eat out.&#10;Can I have a steak and a juice, please?"></textarea>
+    <p style="font-size:11.5px;color:var(--ink-light);margin-top:7px">✨ Não existe resposta errada aqui — escreva à vontade!</p>
+  </div>
+
+  <!-- CULTURAL -->
+  <div class="card">
+    <span class="cult-badge cb-culture">🌍 Curiosidade Cultural</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:18px;margin-bottom:10px">🥡 Hábitos alimentares nos EUA</h2>
+    <div class="tip tip-lav" style="margin-bottom:12px">
+      <span class="tip-icon">🌐</span>
+      <div class="tip-text"><strong>Nota da Teacher Dani:</strong> Esta semana exploramos a cultura americana — mas o inglês abre portas para o mundo inteiro! Nas próximas semanas vamos conhecer outros países e culturas. O inglês é só o começo da viagem. ✈️</div>
+    </div>
+    <div class="tip tip-sky">
+      <span class="tip-icon">📦</span>
+      <div class="tip-text"><strong>Porções gigantes!</strong> Nos EUA, as porções costumam ser muito maiores. É normal — e bem-visto — pedir uma embalagem para levar o que sobrou. Diga: <em>"Can I get a to-go box?"</em></div>
+    </div>
+    <div class="tip tip-sage mt8">
+      <span class="tip-icon">🗣️</span>
+      <div class="tip-text"><strong>Garçons bem animados:</strong> É comum o garçom perguntar <em>"How's everything tasting?"</em> (Tá gostando?). Responda simplesmente: <em>"Delicious, thank you!"</em></div>
+    </div>
+    <div class="tip tip-peach mt8">
+      <span class="tip-icon">🍽️</span>
+      <div class="tip-text"><strong>Doggy bag:</strong> Essa expressão vem do hábito de levar o resto da comida "para o cachorro" — hoje é só uma forma educada de pedir para empacotar o que sobrou!</div>
+    </div>
+  </div>
+
+  <div class="day-footer">
+    <span class="time-tag">⏱️ ~10 min</span>
+    <button class="btn btn-sage btn-sm" onclick="showDay(6,document.querySelectorAll('.day-btn')[5])">🎯 Revisão Final →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ REVIEW ═══════════════════════════ -->
+<div id="day6" class="day-panel">
+  <div class="score-hero">
+    <div style="font-size:26px;margin-bottom:4px">🌟</div>
+    <div class="score-n" id="finalScore">0</div>
+    <div class="score-l">pontos · continue assim!</div>
+  </div>
+
+  <!-- MATCH -->
+  <div class="card">
+    <span class="cult-badge cb-review">Jogo da Memória</span>
+    <div class="card-top" style="margin-top:10px;margin-bottom:10px">
+      <div class="c-icon ic-lav">🔗</div>
+      <div><h2>Associe as palavras</h2><span>Toque uma palavra em inglês e depois em português</span></div>
+    </div>
+    <div class="match-wrap">
+      <div class="match-col" id="mc-en">
+        <div class="mi" data-p="1" data-s="en" onclick="doMatch(this)">January</div>
+        <div class="mi" data-p="2" data-s="en" onclick="doMatch(this)">third</div>
+        <div class="mi" data-p="3" data-s="en" onclick="doMatch(this)">water</div>
+        <div class="mi" data-p="4" data-s="en" onclick="doMatch(this)">Wednesday</div>
+        <div class="mi" data-p="5" data-s="en" onclick="doMatch(this)">I love</div>
+      </div>
+      <div class="match-col" id="mc-pt">
+        <div class="mi" data-p="3" data-s="pt" onclick="doMatch(this)">água</div>
+        <div class="mi" data-p="1" data-s="pt" onclick="doMatch(this)">Janeiro</div>
+        <div class="mi" data-p="5" data-s="pt" onclick="doMatch(this)">eu adoro</div>
+        <div class="mi" data-p="2" data-s="pt" onclick="doMatch(this)">terceiro</div>
+        <div class="mi" data-p="4" data-s="pt" onclick="doMatch(this)">Quarta-feira</div>
+      </div>
+    </div>
+    <div class="match-sc" id="match-sc"></div>
+  </div>
+
+  <!-- FINAL QUIZ -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-sky">🎯</div><div><h2>Quiz da semana</h2><span>5 questões — você sabe tudo isso!</span></div></div>
+
+    <div class="qblock" id="rq1">
+      <p>1. Como se diz <strong>3rd</strong> em inglês?</p>
+      <div class="q-opts">
+        <button class="q-opt" onclick="checkQ(this,'rq1',false)">threeth</button>
+        <button class="q-opt" onclick="checkQ(this,'rq1',true)">third</button>
+        <button class="q-opt" onclick="checkQ(this,'rq1',false)">thrird</button>
+      </div>
+      <div class="q-fb" id="fb-rq1"></div>
+    </div>
+    <div class="qblock" id="rq2">
+      <p>2. Como se pede água de forma educada no restaurante?</p>
+      <div class="q-opts">
+        <button class="q-opt" onclick="checkQ(this,'rq2',false)">Water!</button>
+        <button class="q-opt" onclick="checkQ(this,'rq2',true)">Can I have some water, please?</button>
+        <button class="q-opt" onclick="checkQ(this,'rq2',false)">I want water now.</button>
+      </div>
+      <div class="q-fb" id="fb-rq2"></div>
+    </div>
+    <div class="qblock" id="rq3">
+      <p>3. Nos EUA, como se escreve 14 de fevereiro?</p>
+      <div class="q-opts">
+        <button class="q-opt" onclick="checkQ(this,'rq3',false)">14/02/2025</button>
+        <button class="q-opt" onclick="checkQ(this,'rq3',true)">February 14, 2025</button>
+        <button class="q-opt" onclick="checkQ(this,'rq3',false)">2025-02-14</button>
+      </div>
+      <div class="q-fb" id="fb-rq3"></div>
+    </div>
+    <div class="qblock" id="rq4">
+      <p>4. Para pedir a conta no restaurante, você diz:</p>
+      <div class="q-opts">
+        <button class="q-opt" onclick="checkQ(this,'rq4',false)">Bill me!</button>
+        <button class="q-opt" onclick="checkQ(this,'rq4',true)">Check, please.</button>
+        <button class="q-opt" onclick="checkQ(this,'rq4',false)">Money now!</button>
+      </div>
+      <div class="q-fb" id="fb-rq4"></div>
+    </div>
+    <div class="qblock" id="rq5">
+      <p>5. "Eu não gosto de sushi" em inglês é:</p>
+      <div class="q-opts">
+        <button class="q-opt" onclick="checkQ(this,'rq5',false)">I hate sushi.</button>
+        <button class="q-opt" onclick="checkQ(this,'rq5',true)">I don't like sushi.</button>
+        <button class="q-opt" onclick="checkQ(this,'rq5',false)">I love sushi.</button>
+      </div>
+      <div class="q-fb" id="fb-rq5"></div>
+    </div>
+  </div>
+
+  <!-- WRITING FINAL -->
+  <div class="card">
+    <div class="card-top"><div class="c-icon ic-sage">✍️</div><div><h2>Desafio criativo final</h2><span>Escreva sobre você em inglês!</span></div></div>
+    <p class="body">Use as estruturas da semana e escreva um pequeno parágrafo sobre você. Não precisa ser perfeito — só escreva!</p>
+    <div class="tip tip-bege" style="margin-bottom:12px">
+      <span class="tip-icon">📝</span>
+      <div class="tip-text">Dicas: seu aniversário, uma comida favorita, um dia da semana que você gosta, e como você pediria seu prato favorito em inglês.</div>
+    </div>
+    <textarea class="write-area" rows="6" placeholder="Hi! My name is...&#10;My birthday is on...&#10;I love... and I like...&#10;On Fridays, I...&#10;At a restaurant: Can I have...?"></textarea>
+  </div>
+
+  <!-- DONE BANNER -->
+  <div class="done-banner">
+    <div style="font-size:38px;margin-bottom:8px">🎉</div>
+    <h3>Semana 2 concluída!</h3>
+    <p>Você aprendeu meses, dias, números ordinais, vocabulário de comida e frases de restaurante. Isso é inglês de verdade para a vida real!</p>
+    <p style="margin-top:10px">Continue praticando os desafios diários — cada minutinho conta. 💪</p>
+    <div class="teacher-sig">Teacher Dani ✨</div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ── SHOW DAY ──
+function showDay(n, btn) {
+  document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('visible'));
+  document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('day' + n).classList.add('visible');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ── SPEECH ──
+function speak(text, cardEl) {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.88;
+  // Flash the card if provided
+  if (cardEl) {
+    cardEl.classList.add('lit');
+    u.onend = () => setTimeout(() => cardEl.classList.remove('lit'), 400);
+  }
+  window.speechSynthesis.speak(u);
+}
+
+// ── VOCAB CARD HIGHLIGHT ──
+function toggleFood(el) {
+  el.classList.toggle('tick');
+}
+
+// ── LIKE PICKER ──
+function pickLike(btn, feedbackId, sentence) {
+  btn.closest('.like-row').querySelectorAll('.lchip').forEach(b => {
+    b.classList.remove('on');
+    // reset color classes
+  });
+  btn.classList.add('on');
+  const fb = document.getElementById(feedbackId);
+  fb.textContent = '✅ Frase completa: "' + sentence + '"';
+  fb.style.display = 'block';
+}
+
+// ── QUIZ ──
+const pts = {};
+function checkQ(btn, qid, correct) {
+  const q = document.getElementById(qid);
+  q.querySelectorAll('.q-opt').forEach(o => { o.disabled = true; });
+  const fb = document.getElementById('fb-' + qid);
+  fb.classList.add('show');
+  if (correct) {
+    btn.classList.add('ok');
+    fb.textContent = '🎉 Correto! Muito bem!';
+    fb.classList.add('ok');
+    if (!pts[qid]) { pts[qid] = 10; updateScore(); }
+  } else {
+    btn.classList.add('no');
+    fb.textContent = '💪 Quase! Veja a resposta correta destacada em verde.';
+    fb.classList.add('no');
+    q.querySelectorAll('.q-opt').forEach(o => {
+      if (o.getAttribute('onclick') && o.getAttribute('onclick').includes('true')) o.classList.add('ok');
+    });
+  }
+}
+function updateScore() {
+  document.getElementById('finalScore').textContent = Object.values(pts).reduce((a,b)=>a+b,0);
+}
+
+// ── MATCH ──
+let mSel = null, mCount = 0;
+function doMatch(el) {
+  if (el.classList.contains('matched')) return;
+  if (mSel && mSel === el) { el.classList.remove('sel'); mSel = null; return; }
+  if (mSel && mSel.dataset.s === el.dataset.s) {
+    mSel.classList.remove('sel'); mSel = el; el.classList.add('sel'); return;
+  }
+  if (!mSel) { mSel = el; el.classList.add('sel'); return; }
+  if (mSel.dataset.p === el.dataset.p) {
+    mSel.classList.remove('sel'); mSel.classList.add('matched');
+    el.classList.add('matched'); mCount++;
+    document.getElementById('match-sc').textContent = '✅ ' + mCount + ' / 5 acertadas!';
+    if (mCount === 5) {
+      document.getElementById('match-sc').textContent = '🎉 Perfeito! Todas certas!';
+      if (!pts['match']) { pts['match'] = 10; updateScore(); }
+    }
+    mSel = null;
+  } else {
+    const a = mSel, b = el;
+    a.classList.add('zap'); b.classList.add('zap');
+    setTimeout(() => { a.classList.remove('zap','sel'); b.classList.remove('zap'); }, 500);
+    mSel = null;
+  }
+}
+
+// ── SENTENCE BUILDER ──
+function moveWord(el, id) {
+  const pool = document.getElementById(id + '-pool');
+  const ans = document.getElementById(id + '-ans');
+  if (el.parentElement === pool) { ans.appendChild(el); el.classList.add('placed'); }
+  else { pool.appendChild(el); el.classList.remove('placed'); }
+}
+function checkSB(id, correct) {
+  const words = Array.from(document.getElementById(id+'-ans').querySelectorAll('.wchip')).map(c => c.textContent);
+  const fb = document.getElementById(id + '-fb');
+  fb.classList.add('show');
+  if (JSON.stringify(words) === JSON.stringify(correct)) {
+    fb.textContent = '🎉 Perfeito!'; fb.style.background = '#e8f4e9'; fb.style.color = '#3d6b43';
+    if (!pts[id]) { pts[id] = 10; updateScore(); }
+  } else {
+    fb.textContent = '💪 Quase! Verifique a ordem das palavras.'; fb.style.background = '#fceaea'; fb.style.color = '#c47a7a';
+  }
+}
+function resetSB(id) {
+  const pool = document.getElementById(id + '-pool');
+  const ans = document.getElementById(id + '-ans');
+  Array.from(ans.querySelectorAll('.wchip')).forEach(c => { c.classList.remove('placed'); pool.appendChild(c); });
+  const fb = document.getElementById(id + '-fb');
+  fb.classList.remove('show');
+}
+
+// ── FILL BLANK ──
+function checkFill() {
+  const v1 = document.getElementById('f1').value.trim().toLowerCase();
+  const v2 = document.getElementById('f2').value.trim().toLowerCase();
+  const ok1 = v1 === 'march';
+  const ok2 = ['fifth','5th'].includes(v2);
+  document.getElementById('f1').className = 'blanky ' + (ok1 ? 'ok' : 'no');
+  document.getElementById('f2').className = 'blanky ' + (ok2 ? 'ok' : 'no');
+  const fb = document.getElementById('fill-fb');
+  fb.classList.add('show');
+  if (ok1 && ok2) {
+    fb.textContent = '🎉 As duas certas! Excelente!'; fb.classList.add('ok'); fb.classList.remove('no');
+    if (!pts['fill']) { pts['fill'] = 10; updateScore(); }
+  } else {
+    const h = [];
+    if (!ok1) h.push('1ª: March (o mês antes de April)');
+    if (!ok2) h.push('2ª: fifth (ordinal do 5)');
+    fb.textContent = '💪 Dica: ' + h.join(' | '); fb.classList.add('no'); fb.classList.remove('ok');
+  }
+}
+function resetFill() {
+  ['f1','f2'].forEach(id => { document.getElementById(id).value = ''; document.getElementById(id).className = 'blanky'; });
+  const fb = document.getElementById('fill-fb');
+  fb.className = 'q-fb';
+}
+
+// ── BACK TO TOP ──
+window.addEventListener('scroll', () => {
+  document.getElementById('topBtn').classList.toggle('show', window.scrollY > 280);
+});
+</script>
+</body>
+</html>
